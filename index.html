@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-14 13:41:52 / Modified: 13:50:48" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
+              <time title="Created: 2020-10-14 13:41:52 / Modified: 13:54:29" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
             </span>
 
           
@@ -253,10 +253,10 @@ public static int fCore(int[] rooms, int index) &#123;
   if(cache.containsKey(index)) &#123;
     return cache.get(index);
   &#125;
-  if(index &lt; 0) &#123; &lt;font color=&quot;#dd0000&quot;&gt;超越边界不再递归&lt;/font&gt;&lt;br /&gt; 
+  if(index &lt; 0) &#123; &lt;font color=&quot;#dd0000&quot;&gt; 超越边界不再递归 &lt;/font&gt;&lt;br /&gt; 
     return 0;
   &#125;
-  &lt;font color=&quot;#dd0000&quot;&gt;选择是否行动&lt;/font&gt;&lt;br /&gt; 
+  &lt;font color=&quot;#dd0000&quot;&gt; 选择是否行动 &lt;/font&gt;&lt;br /&gt; 
   int max0 = rooms[index] + fCore(rooms, index - 2);
   int max1 = fCore(rooms, index - 1);
   if(max0 &lt; max1) max0 = max1;
