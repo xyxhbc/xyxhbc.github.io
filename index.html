@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -193,6 +193,100 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%B0%8F%E5%81%B7%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%B0%8F%E5%81%B7%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">动态规划.小偷问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-14 13:41:52 / Modified: 13:47:54" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>package com.youkeda;</p>
+<p>import java.util.HashMap;</p>
+<p>public class Demo {</p>
+<pre><code>public static HashMap&lt;Integer, Integer&gt; cache = new HashMap&lt;&gt;();
+
+// 一夜之间获取的最高现金
+public static int f(int[] rooms) &#123;
+    // 每次调用的时候，将cache情况
+    cache.clear();
+    // 从右侧开始考虑是否偷盗，有新的思路也可以按照自己思路来
+    return fCore(rooms, rooms.length - 1);
+&#125;
+
+public static int fCore(int[] rooms, int index) &#123;
+  if(cache.containsKey(index)) &#123;
+    return cache.get(index);
+  &#125;
+  if(index &lt; 0) &#123; // &lt;font color=&quot;#dd0000&quot;&gt;超越边界不再递归&lt;/font&gt;&lt;br /&gt; 
+    return 0;
+  &#125;
+  // &lt;font color=&quot;#dd0000&quot;&gt;选择是否行动&lt;/font&gt;&lt;br /&gt; 
+  int max0 = rooms[index] + fCore(rooms, index - 2);
+  int max1 = fCore(rooms, index - 1);
+  if(max0 &lt; max1) max0 = max1;
+  cache.put(index, max0);
+    return max0;
+&#125;
+
+public static void main(String[] args) &#123;
+    int[] rooms1 = &#123;1, 2, 3, 1&#125;;
+    System.out.println(&quot;&#123;1,2,3,1&#125;&quot; + f(rooms1));
+    int[] rooms2 = &#123;2, 7, 9, 3, 1&#125;;
+    System.out.println(&quot;&#123;2,7,9,3,1&#125;&quot; + f(rooms2));
+
+&#125;</code></pre>
+<p>}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
