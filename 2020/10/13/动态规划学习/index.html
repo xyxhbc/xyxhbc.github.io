@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="动态规划通过数组避免递归中的重复计算&#x2F;&#x2F; 寻找最少的钞票数public static int f(int m) {  &#x2F;&#x2F; #1 处理边界情况  if (m &lt; 0) { &#x2F;&#x2F;超出边界赋一个极大值来排除    return Integer.MAX_VALUE;  }  if (m &#x3D;&#x3D; 0) {    return 0;  }  &#x2F;&#x2F; 取 1 和 5 的最小超票数  int min &#x3D; Ma">
+  <meta name="description" content="用数组储存递归中间结果123456789101112131415&#x2F;&#x2F; 寻找最少的钞票数public static int f(int m) &amp;#123;  &#x2F;&#x2F; #1 处理边界情况  if (m &lt; 0) &amp;#123; &#x2F;&#x2F;**超出边界赋一个极大值来排除**    return Integer.MAX_VALUE;  &amp;#125;  if (m &#x3D;&#x3D; 0) &amp;#123;    return">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划学习">
 <meta property="og:url" content="http://example.com/2020/10/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="动态规划通过数组避免递归中的重复计算&#x2F;&#x2F; 寻找最少的钞票数public static int f(int m) {  &#x2F;&#x2F; #1 处理边界情况  if (m &lt; 0) { &#x2F;&#x2F;超出边界赋一个极大值来排除    return Integer.MAX_VALUE;  }  if (m &#x3D;&#x3D; 0) {    return 0;  }  &#x2F;&#x2F; 取 1 和 5 的最小超票数  int min &#x3D; Ma">
+<meta property="og:description" content="用数组储存递归中间结果123456789101112131415&#x2F;&#x2F; 寻找最少的钞票数public static int f(int m) &amp;#123;  &#x2F;&#x2F; #1 处理边界情况  if (m &lt; 0) &amp;#123; &#x2F;&#x2F;**超出边界赋一个极大值来排除**    return Integer.MAX_VALUE;  &amp;#125;  if (m &#x3D;&#x3D; 0) &amp;#123;    return">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-13T09:52:25.000Z">
-<meta property="article:modified_time" content="2020-10-13T10:09:41.208Z">
+<meta property="article:modified_time" content="2020-10-14T12:13:41.281Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="1">
 <meta name="twitter:card" content="summary">
@@ -149,9 +149,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E9%81%BF%E5%85%8D%E9%80%92%E5%BD%92%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E8%AE%A1%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">动态规划通过数组避免递归中的重复计算
-</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap-lt-Integer-Integer-gt-map-new-HashMap-lt-gt-%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E5%AD%98%E5%82%A8%E4%B8%AD%E9%97%B4%E5%80%BC"><span class="nav-number"></span> <span class="nav-text">HashMap&lt;Integer, Integer&gt; map &#x3D; new HashMap&lt;&gt;(); &#x2F;&#x2F;作为缓存存储中间值
-</span></a></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%95%B0%E7%BB%84%E5%82%A8%E5%AD%98%E9%80%92%E5%BD%92%E4%B8%AD%E9%97%B4%E7%BB%93%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">用数组储存递归中间结果</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,10 +228,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-10-13 17:52:25 / Modified: 18:09:41" itemprop="dateCreated datePublished" datetime="2020-10-13T17:52:25+08:00">2020-10-13</time>
+              <time title="Created: 2020-10-13 17:52:25" itemprop="dateCreated datePublished" datetime="2020-10-13T17:52:25+08:00">2020-10-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-14 20:13:41" itemprop="dateModified" datetime="2020-10-14T20:13:41+08:00">2020-10-14</time>
+              </span>
 
           
 
@@ -244,10 +248,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="动态规划通过数组避免递归中的重复计算"><a href="#动态规划通过数组避免递归中的重复计算" class="headerlink" title="动态规划通过数组避免递归中的重复计算"></a><font color="#dd0000">动态规划通过数组避免递归中的重复计算</font><br /></h2><p>// 寻找最少的钞票数<br>public static int f(int m) {<br>  // #1 处理边界情况<br>  if (m &lt; 0) { //<strong>超出边界赋一个极大值来排除</strong><br>    return Integer.MAX_VALUE;<br>  }<br>  if (m == 0) {<br>    return 0;<br>  }<br>  // 取 1 和 5 的最小超票数<br>  int min = Math.min(f(m - 1), f(m - 5));<br>  // 取 1 、5、11<br>  min = Math.min(min, f(m - 11));<br>  return min + 1;<br>}</p>
-<h1 id="HashMap-lt-Integer-Integer-gt-map-new-HashMap-lt-gt-作为缓存存储中间值"><a href="#HashMap-lt-Integer-Integer-gt-map-new-HashMap-lt-gt-作为缓存存储中间值" class="headerlink" title="HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); //作为缓存存储中间值"></a>HashMap&lt;Integer, Integer&gt; map = <strong>new</strong> HashMap&lt;&gt;(); //<font color="#dd0000">作为缓存存储中间值</font><br /></h1><p>// 用于缓存钞票<br>public static HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</p>
-<p>// 寻找最少的钞票数<br>public static int f(int m) {<br>  // #1 处理边界情况<br>  if (m &lt; 0) {<br>    return Integer.MAX_VALUE;<br>  }<br>  if (m == 0) {<br>    return 0;<br>  }<br>  // #2 加入缓存<br>  if(map.containsKey(m)){<br>    return map.get(m);<br>  }<br>  // 取 1 和 5 的最小超票数<br>  int min = Math.min(f(m - 1), f(m - 5));<br>  // 取 1 、5、11<br>  min = Math.min(min, f(m - 11));</p>
-<p>  // #3 存储缓存<br>  map.put(m, min + 1);<br>  return min + 1;<br>}</p>
+        <h2 id="用数组储存递归中间结果"><a href="#用数组储存递归中间结果" class="headerlink" title="用数组储存递归中间结果"></a><font color="#dd0000">用数组储存递归中间结果</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 寻找最少的钞票数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// #1 处理边界情况</span></span><br><span class="line">  <span class="keyword">if</span> (m &lt; <span class="number">0</span>) &#123; <span class="comment">//**超出边界赋一个极大值来排除**</span></span><br><span class="line">    <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取 1 和 5 的最小超票数</span></span><br><span class="line">  <span class="keyword">int</span> min = Math.min(f(m - <span class="number">1</span>), f(m - <span class="number">5</span>));</span><br><span class="line">  <span class="comment">// 取 1 、5、11</span></span><br><span class="line">  min = Math.min(min, f(m - <span class="number">11</span>));</span><br><span class="line">  <span class="keyword">return</span> min + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); //作为缓存存储中间值</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于缓存钞票</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寻找最少的钞票数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// #1 处理边界情况</span></span><br><span class="line">  <span class="keyword">if</span> (m &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// #2 加入缓存</span></span><br><span class="line">  <span class="keyword">if</span>(map.containsKey(m))&#123;</span><br><span class="line">    <span class="keyword">return</span> map.get(m);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取 1 和 5 的最小超票数</span></span><br><span class="line">  <span class="keyword">int</span> min = Math.min(f(m - <span class="number">1</span>), f(m - <span class="number">5</span>));</span><br><span class="line">  <span class="comment">// 取 1 、5、11</span></span><br><span class="line">  min = Math.min(min, f(m - <span class="number">11</span>));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// #3 存储缓存</span></span><br><span class="line">  map.put(m, min + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> min + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 

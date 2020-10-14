@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="package com.youkeda; import java.util.HashMap; public class Demo { public static HashMap&lt;Integer, Integer&gt; cache &#x3D; new HashMap&lt;&gt;();  &#x2F;&#x2F; 一夜之间获取的最高现金 public static int f(int[] rooms) &amp;#123;">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940package com.youkeda;import java.util.HashMap;public class Demo &amp;#123;	public static HashMap&lt;Integer, Integer&gt; cache &#x3D; new H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划.小偷问题">
 <meta property="og:url" content="http://example.com/2020/10/14/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E5%B0%8F%E5%81%B7%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="package com.youkeda; import java.util.HashMap; public class Demo { public static HashMap&lt;Integer, Integer&gt; cache &#x3D; new HashMap&lt;&gt;();  &#x2F;&#x2F; 一夜之间获取的最高现金 public static int f(int[] rooms) &amp;#123;">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940package com.youkeda;import java.util.HashMap;public class Demo &amp;#123;	public static HashMap&lt;Integer, Integer&gt; cache &#x3D; new H">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-14T05:41:52.000Z">
-<meta property="article:modified_time" content="2020-10-14T06:05:50.330Z">
+<meta property="article:modified_time" content="2020-10-14T12:04:54.701Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="1">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-14 13:41:52 / Modified: 14:05:50" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
+              <time title="Created: 2020-10-14 13:41:52 / Modified: 20:04:54" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
             </span>
 
           
@@ -241,42 +241,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>package com.youkeda;</p>
-<p>import java.util.HashMap;</p>
-<p>public class Demo {</p>
-<pre><code>public static HashMap&lt;Integer, Integer&gt; cache = new HashMap&lt;&gt;();
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;Integer, Integer&gt; cache = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 一夜之间获取的最高现金</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>[] rooms)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 每次调用的时候，将cache情况</span></span><br><span class="line">		cache.clear();</span><br><span class="line">		<span class="comment">// 从右侧开始考虑是否偷盗，有新的思路也可以按照自己思路来</span></span><br><span class="line">		<span class="keyword">return</span> fCore(rooms, rooms.length - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fCore</span><span class="params">(<span class="keyword">int</span>[] rooms, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">if</span>(cache.containsKey(index)) &#123;</span><br><span class="line">	    <span class="keyword">return</span> cache.get(index);</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="keyword">if</span>(index &lt; <span class="number">0</span>) &#123; <span class="comment">//超越边界不再递归</span></span><br><span class="line">	    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	  ## **选择是否行动**</span><br><span class="line">	  <span class="keyword">int</span> max0 = rooms[index] + fCore(rooms, index - <span class="number">2</span>);</span><br><span class="line">	  <span class="keyword">int</span> max1 = fCore(rooms, index - <span class="number">1</span>);</span><br><span class="line">	  <span class="keyword">if</span>(max0 &lt; max1) max0 = max1;</span><br><span class="line">	  cache.put(index, max0);</span><br><span class="line">		<span class="keyword">return</span> max0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] rooms1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">&quot;&#123;1,2,3,1&#125;&quot;</span> + f(rooms1));</span><br><span class="line">		<span class="keyword">int</span>[] rooms2 = &#123;<span class="number">2</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">&quot;&#123;2,7,9,3,1&#125;&quot;</span> + f(rooms2));</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// 一夜之间获取的最高现金
-public static int f(int[] rooms) &#123;
-    // 每次调用的时候，将cache情况
-    cache.clear();
-    // 从右侧开始考虑是否偷盗，有新的思路也可以按照自己思路来
-    return fCore(rooms, rooms.length - 1);
-&#125;
-
-public static int fCore(int[] rooms, int index) &#123;
-  if(cache.containsKey(index)) &#123;
-    return cache.get(index);
-  &#125;
-  if(index &lt; 0) &#123; ## **超越边界不再递归**
-    return 0;
-  &#125;
-  ## **选择是否行动**
-  int max0 = rooms[index] + fCore(rooms, index - 2);
-  int max1 = fCore(rooms, index - 1);
-  if(max0 &lt; max1) max0 = max1;
-  cache.put(index, max0);
-    return max0;
-&#125;
-
-public static void main(String[] args) &#123;
-    int[] rooms1 = &#123;1, 2, 3, 1&#125;;
-    System.out.println(&quot;&#123;1,2,3,1&#125;&quot; + f(rooms1));
-    int[] rooms2 = &#123;2, 7, 9, 3, 1&#125;;
-    System.out.println(&quot;&#123;2,7,9,3,1&#125;&quot; + f(rooms2));
-
-&#125;</code></pre>
-<p>}</p>
 
     </div>
 

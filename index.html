@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-14 13:41:52 / Modified: 14:05:50" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
+              <time title="Created: 2020-10-14 13:41:52 / Modified: 20:04:54" itemprop="dateCreated datePublished" datetime="2020-10-14T13:41:52+08:00">2020-10-14</time>
             </span>
 
           
@@ -236,42 +236,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>package com.youkeda;</p>
-<p>import java.util.HashMap;</p>
-<p>public class Demo {</p>
-<pre><code>public static HashMap&lt;Integer, Integer&gt; cache = new HashMap&lt;&gt;();
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.youkeda;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;Integer, Integer&gt; cache = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 一夜之间获取的最高现金</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>[] rooms)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 每次调用的时候，将cache情况</span></span><br><span class="line">		cache.clear();</span><br><span class="line">		<span class="comment">// 从右侧开始考虑是否偷盗，有新的思路也可以按照自己思路来</span></span><br><span class="line">		<span class="keyword">return</span> fCore(rooms, rooms.length - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fCore</span><span class="params">(<span class="keyword">int</span>[] rooms, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">if</span>(cache.containsKey(index)) &#123;</span><br><span class="line">	    <span class="keyword">return</span> cache.get(index);</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="keyword">if</span>(index &lt; <span class="number">0</span>) &#123; <span class="comment">//超越边界不再递归</span></span><br><span class="line">	    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	  ## **选择是否行动**</span><br><span class="line">	  <span class="keyword">int</span> max0 = rooms[index] + fCore(rooms, index - <span class="number">2</span>);</span><br><span class="line">	  <span class="keyword">int</span> max1 = fCore(rooms, index - <span class="number">1</span>);</span><br><span class="line">	  <span class="keyword">if</span>(max0 &lt; max1) max0 = max1;</span><br><span class="line">	  cache.put(index, max0);</span><br><span class="line">		<span class="keyword">return</span> max0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] rooms1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">&quot;&#123;1,2,3,1&#125;&quot;</span> + f(rooms1));</span><br><span class="line">		<span class="keyword">int</span>[] rooms2 = &#123;<span class="number">2</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</span><br><span class="line">		System.out.println(<span class="string">&quot;&#123;2,7,9,3,1&#125;&quot;</span> + f(rooms2));</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// 一夜之间获取的最高现金
-public static int f(int[] rooms) &#123;
-    // 每次调用的时候，将cache情况
-    cache.clear();
-    // 从右侧开始考虑是否偷盗，有新的思路也可以按照自己思路来
-    return fCore(rooms, rooms.length - 1);
-&#125;
-
-public static int fCore(int[] rooms, int index) &#123;
-  if(cache.containsKey(index)) &#123;
-    return cache.get(index);
-  &#125;
-  if(index &lt; 0) &#123; ## **超越边界不再递归**
-    return 0;
-  &#125;
-  ## **选择是否行动**
-  int max0 = rooms[index] + fCore(rooms, index - 2);
-  int max1 = fCore(rooms, index - 1);
-  if(max0 &lt; max1) max0 = max1;
-  cache.put(index, max0);
-    return max0;
-&#125;
-
-public static void main(String[] args) &#123;
-    int[] rooms1 = &#123;1, 2, 3, 1&#125;;
-    System.out.println(&quot;&#123;1,2,3,1&#125;&quot; + f(rooms1));
-    int[] rooms2 = &#123;2, 7, 9, 3, 1&#125;;
-    System.out.println(&quot;&#123;2,7,9,3,1&#125;&quot; + f(rooms2));
-
-&#125;</code></pre>
-<p>}</p>
 
       
     </div>
@@ -316,10 +282,16 @@ public static void main(String[] args) &#123;
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-10-13 17:52:25 / Modified: 18:09:41" itemprop="dateCreated datePublished" datetime="2020-10-13T17:52:25+08:00">2020-10-13</time>
+              <time title="Created: 2020-10-13 17:52:25" itemprop="dateCreated datePublished" datetime="2020-10-13T17:52:25+08:00">2020-10-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-14 20:13:41" itemprop="dateModified" datetime="2020-10-14T20:13:41+08:00">2020-10-14</time>
+              </span>
 
           
 
@@ -330,10 +302,10 @@ public static void main(String[] args) &#123;
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="动态规划通过数组避免递归中的重复计算"><a href="#动态规划通过数组避免递归中的重复计算" class="headerlink" title="动态规划通过数组避免递归中的重复计算"></a><font color="#dd0000">动态规划通过数组避免递归中的重复计算</font><br /></h2><p>// 寻找最少的钞票数<br>public static int f(int m) {<br>  // #1 处理边界情况<br>  if (m &lt; 0) { //<strong>超出边界赋一个极大值来排除</strong><br>    return Integer.MAX_VALUE;<br>  }<br>  if (m == 0) {<br>    return 0;<br>  }<br>  // 取 1 和 5 的最小超票数<br>  int min = Math.min(f(m - 1), f(m - 5));<br>  // 取 1 、5、11<br>  min = Math.min(min, f(m - 11));<br>  return min + 1;<br>}</p>
-<h1 id="HashMap-lt-Integer-Integer-gt-map-new-HashMap-lt-gt-作为缓存存储中间值"><a href="#HashMap-lt-Integer-Integer-gt-map-new-HashMap-lt-gt-作为缓存存储中间值" class="headerlink" title="HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); //作为缓存存储中间值"></a>HashMap&lt;Integer, Integer&gt; map = <strong>new</strong> HashMap&lt;&gt;(); //<font color="#dd0000">作为缓存存储中间值</font><br /></h1><p>// 用于缓存钞票<br>public static HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</p>
-<p>// 寻找最少的钞票数<br>public static int f(int m) {<br>  // #1 处理边界情况<br>  if (m &lt; 0) {<br>    return Integer.MAX_VALUE;<br>  }<br>  if (m == 0) {<br>    return 0;<br>  }<br>  // #2 加入缓存<br>  if(map.containsKey(m)){<br>    return map.get(m);<br>  }<br>  // 取 1 和 5 的最小超票数<br>  int min = Math.min(f(m - 1), f(m - 5));<br>  // 取 1 、5、11<br>  min = Math.min(min, f(m - 11));</p>
-<p>  // #3 存储缓存<br>  map.put(m, min + 1);<br>  return min + 1;<br>}</p>
+          <h2 id="用数组储存递归中间结果"><a href="#用数组储存递归中间结果" class="headerlink" title="用数组储存递归中间结果"></a><font color="#dd0000">用数组储存递归中间结果</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 寻找最少的钞票数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// #1 处理边界情况</span></span><br><span class="line">  <span class="keyword">if</span> (m &lt; <span class="number">0</span>) &#123; <span class="comment">//**超出边界赋一个极大值来排除**</span></span><br><span class="line">    <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取 1 和 5 的最小超票数</span></span><br><span class="line">  <span class="keyword">int</span> min = Math.min(f(m - <span class="number">1</span>), f(m - <span class="number">5</span>));</span><br><span class="line">  <span class="comment">// 取 1 、5、11</span></span><br><span class="line">  min = Math.min(min, f(m - <span class="number">11</span>));</span><br><span class="line">  <span class="keyword">return</span> min + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); //作为缓存存储中间值</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于缓存钞票</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寻找最少的钞票数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// #1 处理边界情况</span></span><br><span class="line">  <span class="keyword">if</span> (m &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// #2 加入缓存</span></span><br><span class="line">  <span class="keyword">if</span>(map.containsKey(m))&#123;</span><br><span class="line">    <span class="keyword">return</span> map.get(m);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 取 1 和 5 的最小超票数</span></span><br><span class="line">  <span class="keyword">int</span> min = Math.min(f(m - <span class="number">1</span>), f(m - <span class="number">5</span>));</span><br><span class="line">  <span class="comment">// 取 1 、5、11</span></span><br><span class="line">  min = Math.min(min, f(m - <span class="number">11</span>));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// #3 存储缓存</span></span><br><span class="line">  map.put(m, min + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> min + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
