@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
   </script>
 
-  <meta name="description" content="grep -c ‘ 查找的文本内容 ‘ 文件名GET + 请求的网址 + 请求的协议cat 文件名|awk ‘{ print $8 }’|sort|uniq -c|sort -k1r|head -10 脚本头: #!&#x2F;bin&#x2F;bashif [ ]; then …… fi-f ‘文件名’ 判断文件是否存在运行 sh xxx.sh">
+  <meta name="description" content="输入在第一行给出 2 个正整数，分别是 L（不超过 1000 的正整数，为数字长度）和 K（小于 10 的正整数）。接下来一行给出一个长度为 L 的正整数 N。 在一行中输出 N 中最早出现的 K 位连续数字所组成的素数。如果这样的素数不存在，则输出 404。注意，原始数字中的前导零也计算在位数之内。例如在 200236 中找 4 位素数，0023 算是解；但第一位 2 不能被当成 0002 输出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rizhifenxixuexi">
-<meta property="og:url" content="http://example.com/2020/10/13/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:title" content="pat-B-1095">
+<meta property="og:url" content="http://example.com/2020/10/16/patB1095/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="grep -c ‘ 查找的文本内容 ‘ 文件名GET + 请求的网址 + 请求的协议cat 文件名|awk ‘{ print $8 }’|sort|uniq -c|sort -k1r|head -10 脚本头: #!&#x2F;bin&#x2F;bashif [ ]; then …… fi-f ‘文件名’ 判断文件是否存在运行 sh xxx.sh">
+<meta property="og:description" content="输入在第一行给出 2 个正整数，分别是 L（不超过 1000 的正整数，为数字长度）和 K（小于 10 的正整数）。接下来一行给出一个长度为 L 的正整数 N。 在一行中输出 N 中最早出现的 K 位连续数字所组成的素数。如果这样的素数不存在，则输出 404。注意，原始数字中的前导零也计算在位数之内。例如在 200236 中找 4 位素数，0023 算是解；但第一位 2 不能被当成 0002 输出">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-13T06:23:43.000Z">
-<meta property="article:modified_time" content="2020-10-13T06:31:17.311Z">
+<meta property="article:published_time" content="2020-10-16T01:34:34.000Z">
+<meta property="article:modified_time" content="2020-10-16T01:48:19.430Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="日志分析学习">
+<meta property="article:tag" content="pat 乙">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2020/10/13/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81/">
+<link rel="canonical" href="http://example.com/2020/10/16/patB1095/">
 
 
 <script class="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>rizhifenxixuexi | Hexo</title>
+  <title>pat-B-1095 | Hexo</title>
   
 
 
@@ -137,7 +137,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -149,7 +149,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#grep-c-%E2%80%98-%E6%9F%A5%E6%89%BE%E7%9A%84%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9-%E2%80%98-%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">grep -c ‘ 查找的文本内容 ‘ 文件名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GET-%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BD%91%E5%9D%80-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">GET + 请求的网址 + 请求的协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%A4%B4-bin-bash"><span class="nav-number">2.1.</span> <span class="nav-text">脚本头: #!&#x2F;bin&#x2F;bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-then-%E2%80%A6%E2%80%A6-fi"><span class="nav-number">2.2.</span> <span class="nav-text">if [ ]; then …… fi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-%E2%80%98%E6%96%87%E4%BB%B6%E5%90%8D%E2%80%99-%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-number">2.3.</span> <span class="nav-text">-f ‘文件名’ 判断文件是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-sh-xxx-sh"><span class="nav-number">2.4.</span> <span class="nav-text">运行 sh xxx.sh</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -204,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/13/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/16/patB1095/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -219,7 +218,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          rizhifenxixuexi
+          pat-B-1095
         </h1>
 
         <div class="post-meta">
@@ -230,7 +229,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-13 14:23:43 / Modified: 14:31:17" itemprop="dateCreated datePublished" datetime="2020-10-13T14:23:43+08:00">2020-10-13</time>
+              <time title="Created: 2020-10-16 09:34:34 / Modified: 09:48:19" itemprop="dateCreated datePublished" datetime="2020-10-16T09:34:34+08:00">2020-10-16</time>
             </span>
 
           
@@ -242,8 +241,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="grep-c-‘-查找的文本内容-‘-文件名"><a href="#grep-c-‘-查找的文本内容-‘-文件名" class="headerlink" title="grep -c ‘ 查找的文本内容 ‘ 文件名"></a>grep -c ‘ 查找的文本内容 ‘ 文件名</h1><h1 id="GET-请求的网址-请求的协议"><a href="#GET-请求的网址-请求的协议" class="headerlink" title="GET + 请求的网址 + 请求的协议"></a>GET + 请求的网址 + 请求的协议</h1><p>cat 文件名|awk ‘{ print $8 }’|sort|uniq -c|sort -k1r|head -10</p>
-<h2 id="脚本头-bin-bash"><a href="#脚本头-bin-bash" class="headerlink" title="脚本头: #!/bin/bash"></a><strong>脚本头: #!/bin/bash</strong></h2><h2 id="if-then-……-fi"><a href="#if-then-……-fi" class="headerlink" title="if [ ]; then …… fi"></a>if [ ]; then …… fi</h2><h2 id="f-‘文件名’-判断文件是否存在"><a href="#f-‘文件名’-判断文件是否存在" class="headerlink" title="-f ‘文件名’ 判断文件是否存在"></a>-f ‘文件名’ 判断文件是否存在</h2><h2 id="运行-sh-xxx-sh"><a href="#运行-sh-xxx-sh" class="headerlink" title="运行 sh xxx.sh"></a>运行 sh xxx.sh</h2>
+        <p>输入在第一行给出 2 个正整数，分别是 L（不超过 1000 的正整数，为数字长度）和 K（小于 10 的正整数）。接下来一行给出一个长度为 L 的正整数 N。</p>
+<p>在一行中输出 N 中最早出现的 K 位连续数字所组成的素数。如果这样的素数不存在，则输出 <code>404</code>。注意，原始数字中的前导零也计算在位数之内。例如在 200236 中找 4 位素数，0023 算是解；但第一位 2 不能被当成 0002 输出，因为在原始数字中不存在这个 2 的前导零。</p>
+<p><font color="#dd0000" > string类型  .size 返回 unsigned int, 减去一个大于它的 int 型 会得到极大正数</font></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k, flag;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n  &gt;&gt; k;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n - k; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> b = s.substr(i, k);</span><br><span class="line">        <span class="keyword">int</span> temp = stoi(b);</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(temp == <span class="number">0</span> || temp == <span class="number">1</span>) &#123;</span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= (<span class="keyword">int</span>)<span class="built_in">sqrt</span>(<span class="number">1.0</span> * temp); i++) &#123; <span class="comment">// 可用 i * i &lt; temp</span></span><br><span class="line">            <span class="keyword">if</span>(temp % i == <span class="number">0</span>) &#123;</span><br><span class="line">                flag = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;404&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -252,7 +255,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0/" rel="tag"># 日志分析学习</a>
+              <a href="/tags/pat-%E4%B9%99/" rel="tag"># pat 乙</a>
           </div>
 
         
@@ -260,11 +263,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/10/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AD%A6%E4%B9%A0/" rel="next" title="动态规划学习">
-      动态规划学习 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/10/14/%E7%8B%BC%E4%BA%BA%E6%9D%80-%E7%AE%80%E5%8D%95%E7%89%88/" rel="prev" title="狼人杀-简单版">
+      <i class="fa fa-chevron-left"></i> 狼人杀-简单版
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
