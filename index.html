@@ -305,10 +305,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-10-17 09:33:43 / Modified: 11:27:58" itemprop="dateCreated datePublished" datetime="2020-10-17T09:33:43+08:00">2020-10-17</time>
+              <time title="Created: 2020-10-17 09:33:43" itemprop="dateCreated datePublished" datetime="2020-10-17T09:33:43+08:00">2020-10-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-18 21:22:18" itemprop="dateModified" datetime="2020-10-18T21:22:18+08:00">2020-10-18</time>
+              </span>
 
           
 
@@ -322,6 +328,21 @@
           <h3 id="条件执行"><a href="#条件执行" class="headerlink" title="条件执行"></a>条件执行</h3><p><strong>JAVA中比较运算符的左右对象类型必须一样</strong></p>
 <h3 id="条件判断链"><a href="#条件判断链" class="headerlink" title="条件判断链"></a>条件判断链</h3><p><strong>else if 顺序执行，条件符合就不再判断下一条件</strong></p>
 <p>在JAVA中无返回值(void)方法中可以用  <strong>return;</strong></p>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String name : tables) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="等价于"><a href="#等价于" class="headerlink" title=" 等价于"></a><font color="#dd0000"> 等价于</font></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tables.length; i++)&#123;</span><br><span class="line">  String name = tables[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用字符串的方法"><a href="#调用字符串的方法" class="headerlink" title="调用字符串的方法"></a>调用字符串的方法</h3><h4 id="length-字符串长度"><a href="#length-字符串长度" class="headerlink" title="length()  字符串长度"></a>length()  字符串长度</h4><h3 id="charAt-取字符串的一个字符"><a href="#charAt-取字符串的一个字符" class="headerlink" title="charAt()  取字符串的一个字符"></a>charAt()  取字符串的一个字符</h3><h3 id="trim-去除字符串左右多余空格"><a href="#trim-去除字符串左右多余空格" class="headerlink" title="trim()  去除字符串左右多余空格"></a>trim()  去除字符串左右多余空格</h3><h3 id="indexOf-字符串匹配"><a href="#indexOf-字符串匹配" class="headerlink" title="indexOf()  字符串匹配"></a>indexOf()  字符串匹配</h3><p>indexOf(“字符串”)</p>
+<p>indexOf(“字符串”， “开始索引值”);</p>
+<h3 id="substring-字符串拼接"><a href="#substring-字符串拼接" class="headerlink" title="substring()  字符串拼接"></a>substring()  字符串拼接</h3><h3 id="startsWith-“字符串”-是否以相应字符串开始"><a href="#startsWith-“字符串”-是否以相应字符串开始" class="headerlink" title="startsWith(“字符串”)  是否以相应字符串开始"></a>startsWith(“字符串”)  是否以相应字符串开始</h3><h3 id="endsWith-“字符串”-是否以相应字符串结束"><a href="#endsWith-“字符串”-是否以相应字符串结束" class="headerlink" title="endsWith(“字符串”)  是否以相应字符串结束"></a>endsWith(“字符串”)  是否以相应字符串结束</h3><h3 id="replaceAll-”A”-“B”-以B替换A"><a href="#replaceAll-”A”-“B”-以B替换A" class="headerlink" title="replaceAll(”A”, “B”)  以B替换A"></a>replaceAll(”A”, “B”)  以B替换A</h3><h4 id="生成新的字符串，原字符串不变"><a href="#生成新的字符串，原字符串不变" class="headerlink" title="//生成新的字符串，原字符串不变"></a><font color="#dd0000">//生成新的字符串，原字符串不变</font></h4><h3 id="split-字符串分割"><a href="#split-字符串分割" class="headerlink" title="split()  字符串分割"></a>split()  字符串分割</h3><h4 id="这三个字符如果作为分割符，那么就需要加上-比如-str-split-“-”"><a href="#这三个字符如果作为分割符，那么就需要加上-比如-str-split-“-”" class="headerlink" title=". | *这三个字符如果作为分割符，那么就需要加上\\,比如 str.split(“\\|”)"></a><font color="#dd0000">.<code> </code>|<code> </code>*<code>这三个字符如果作为分割符，那么就需要加上</code>\\<code>,比如 </code>str.split(“\\|”)</font></h4><h3 id="toUpperCase-toLowerCase-大小写转化"><a href="#toUpperCase-toLowerCase-大小写转化" class="headerlink" title="toUpperCase()/toLowerCase()  大小写转化"></a>toUpperCase()/toLowerCase()  大小写转化</h3><h3 id="equals-字符串比较"><a href="#equals-字符串比较" class="headerlink" title="equals()  字符串比较"></a>equals()  字符串比较</h3><h3 id="Integer-parselnt-字符串转化为数字"><a href="#Integer-parselnt-字符串转化为数字" class="headerlink" title="Integer.parselnt()  字符串转化为数字"></a>Integer.parselnt()  字符串转化为数字</h3><h3 id="数字转化为字符串"><a href="#数字转化为字符串" class="headerlink" title="数字转化为字符串"></a>数字转化为字符串</h3><ul>
+<li><p>```java<br> public static void main(String[] args) {</p>
+<pre><code>int a = 100;
+//使用空字符串相加数字，会自动变成字符串类型
+String str = &quot;&quot;+a;
+System.out.println(str);</code></pre>
+<p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#96;&#96;&#96;java</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">  </span><br><span class="line">      int a &#x3D; 100;</span><br><span class="line">      &#x2F;&#x2F;使用valueOf强制把数字转化为字符串</span><br><span class="line">      String str &#x3D; String.valueOf(a);</span><br><span class="line">      &#x2F;&#x2F;接受数字、浮点、布尔类型</span><br><span class="line">      System.out.println(str);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
