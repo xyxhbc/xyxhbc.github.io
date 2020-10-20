@@ -156,12 +156,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -193,6 +193,75 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/20/patB1052/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/20/patB1052/" class="post-title-link" itemprop="url">patB1052</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-20 22:25:00 / Modified: 22:32:48" itemprop="dateCreated datePublished" datetime="2020-10-20T22:25:00+08:00">2020-10-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>萌萌哒表情符号通常由“手”、“眼”、“口”三个主要部分组成。简单起见，我们假设一个表情符号是按下列格式输出的：</p>
+<p>左手  左眼  口  右眼  有口</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入首先在前三行顺序对应给出手、眼、口的可选符号集。每个符号括在一对方括号 <code>[]</code>内。题目保证每个集合都至少有一个符号，并不超过 10 个符号；每个符号包含 1 到 4 个非空字符。</p>
+<p>之后一行给出一个正整数 K，为用户请求的个数。随后 K 行，每行给出一个用户的符号选择，顺序为左手、左眼、口、右眼、右手——这里只给出符号在相应集合中的序号（从 1 开始），数字间以空格分隔。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个用户请求，在一行中输出生成的表情。若用户选择的序号不存在，则输出 <code>Are you kidding me? @\/@</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入样例</span><br><span class="line">[╮][╭][o][~\][&#x2F;~]  [&lt;][&gt;]</span><br><span class="line"> [╯][╰][^][-][&#x3D;][&gt;][&lt;][@][⊙]</span><br><span class="line">[Д][▽][_][ε][^]  ...</span><br><span class="line">4</span><br><span class="line">1 1 2 2 2</span><br><span class="line">6 8 1 5 5</span><br><span class="line">3 3 4 3 3</span><br><span class="line">2 10 3 9 3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输出样例</span><br><span class="line">╮(╯▽╰)╭</span><br><span class="line">&lt;(@Д&#x3D;)&#x2F;~</span><br><span class="line">o(^ε^)o</span><br><span class="line">Are you kidding me? @\&#x2F;@</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; s[<span class="number">3</span>]; <span class="comment">// 建立一个stirng的二位数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> temp;</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;temp);</span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="string">&#x27;[&#x27;</span>) &#123;</span><br><span class="line">                s[i].push_back(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;temp);</span><br><span class="line">                    <span class="keyword">if</span>(temp == <span class="string">&#x27;]&#x27;</span>) &#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    s[i][count] += temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> a, b, c, d, e;</span><br><span class="line">    <span class="keyword">while</span>(n--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d &gt;&gt; e;</span><br><span class="line">        <span class="keyword">if</span>(a &gt; s[<span class="number">0</span>].size() || b &gt; s[<span class="number">1</span>].size() || c &gt; s[<span class="number">2</span>].size() || d &gt; s[<span class="number">1</span>].size() || e &gt; s[<span class="number">0</span>].size() || a &lt; <span class="number">1</span> || b &lt; <span class="number">1</span> || c &lt; <span class="number">1</span> || d &lt; <span class="number">1</span> || e &lt; <span class="number">1</span>) &#123; <span class="comment">//测试点1中输入为非正整数</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Are you kidding me? @\\/@&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s[<span class="number">0</span>][a - <span class="number">1</span>] &lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; s[<span class="number">1</span>][b - <span class="number">1</span>] &lt;&lt; s[<span class="number">2</span>][c - <span class="number">1</span>] &lt;&lt; s[<span class="number">1</span>][d - <span class="number">1</span>] &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; s[<span class="number">0</span>][e - <span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
