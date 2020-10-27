@@ -156,12 +156,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -193,6 +193,120 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">8.创建对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-27 14:27:42 / Modified: 19:52:39" itemprop="dateCreated datePublished" datetime="2020-10-27T14:27:42+08:00">2020-10-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="包管理："><a href="#包管理：" class="headerlink" title="包管理："></a>包管理：</h4><p>将不同的Java代码放到不同的文件夹（package）中</p>
+<p>导入包：import  包名 + 类名</p>
+<p>包名+类名组成完整的包路径</p>
+<p><font color = "#dd0000"> LocalDate(java8):</font> 获得计算机系统时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前的日期</span></span><br><span class="line">LocalDate time = LocalDate.now();</span><br></pre></td></tr></table></figure>
+
+<h4 id="日期时间和字符串的转化"><a href="#日期时间和字符串的转化" class="headerlink" title="日期时间和字符串的转化"></a>日期时间和字符串的转化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DateTimeFormatter 该类可以格式化输出日期时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个格式化方式</span></span><br><span class="line">DateTimeFormatter df = DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 执行时间的格式化处理，得到期望格式的时间字符串</span></span><br><span class="line">String timeStr = df.format(time);</span><br></pre></td></tr></table></figure>
+
+<h4 id="获得日期具体的值"><a href="#获得日期具体的值" class="headerlink" title="获得日期具体的值"></a>获得日期具体的值</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在年</span></span><br><span class="line">    <span class="keyword">int</span> year = time.getYear();</span><br><span class="line">    System.out.println(<span class="string">&quot;当前年份 &quot;</span> + year);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在月</span></span><br><span class="line">   <span class="keyword">int</span> month = time.getMonth().getValue();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前月份 &quot;</span> + month);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间在这个月中的天数</span></span><br><span class="line">   <span class="keyword">int</span> day = time.getDayOfMonth();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前日 &quot;</span> + day);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在星期数</span></span><br><span class="line">   <span class="keyword">int</span> dayOfWeek = time.getDayOfWeek().getValue();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前星期 &quot;</span> + dayOfWeek);</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串转化为日期"><a href="#字符串转化为日期" class="headerlink" title="字符串转化为日期"></a>字符串转化为日期</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把字符串转化位 LocalDate 对象，并得到字符串匹配的日期</span></span><br><span class="line">    LocalDate date2 = LocalDate.parse(<span class="string">&quot;2019-01-01&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><font color = "#dd0000">若日期格式非yyyy-MM-dd</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个时间字符串，日期是2019年1月1日</span></span><br><span class="line">    String date = <span class="string">&quot;2019/01/01&quot;</span>;</span><br><span class="line"></span><br><span class="line">    DateTimeFormatter df = DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把字符串转化位 LocalDate 对象，并得到字符串匹配的日期</span></span><br><span class="line">    LocalDate date2 = LocalDate.parse(date,df);</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间日期的计算"><a href="#时间日期的计算" class="headerlink" title="时间日期的计算"></a>时间日期的计算</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 plusDays 添加天数，得到新的时间</span></span><br><span class="line">   LocalDate leaveTime = time.plusDays(days);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTest10</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    LocalDate now = LocalDate.now();</span><br><span class="line">    System.out.println(<span class="string">&quot;当前：&quot;</span> + now.toString());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;加法运算&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;加1天：&quot;</span> + now.plusDays(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1周：&quot;</span> + now.plusWeeks(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1月：&quot;</span> + now.plusMonths(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1年：&quot;</span> + now.plusYears(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;减法运算&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;减1天：&quot;</span> + now.minusDays(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1周：&quot;</span> + now.minusWeeks(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1月：&quot;</span> + now.minusMonths(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1年：&quot;</span> + now.minusYears(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="两个日期时间的判断"><a href="#两个日期时间的判断" class="headerlink" title="两个日期时间的判断"></a>两个日期时间的判断</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//是否在当天之前</span></span><br><span class="line"><span class="keyword">boolean</span> isBefore=now.minusDays(<span class="number">1</span>).isBefore(LocalDate.now());</span><br><span class="line"><span class="comment">//是否在当天之后</span></span><br><span class="line"><span class="keyword">boolean</span> isAfter = now.plusDays(<span class="number">1</span>).isAfter(LocalDate.now());</span><br><span class="line"><span class="comment">// 判断是否是当天</span></span><br><span class="line"><span class="keyword">boolean</span> sameDate = now.isEqual(LocalDate.now());</span><br></pre></td></tr></table></figure>
+
+<h4 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h4><p><font color = "#dd0000">类中直接定义的变量</font></p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
+<li><p>有static关键字为静态方法</p>
+</li>
+<li><p>无static关键字为对象方法</p>
+</li>
+</ul>
+<h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><p>若在Java中定义了新的构造器，则默认的无参数构函数就失效</p>
+<h4 id="ArrayList语法（动态数组对象）"><a href="#ArrayList语法（动态数组对象）" class="headerlink" title="ArrayList语法（动态数组对象）"></a>ArrayList语法（动态数组对象）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line">ArrayList&lt;Java 对象类型&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>add方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 ArrayList 存储字符串集合</span></span><br><span class="line">   ArrayList&lt;String&gt; strs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 添加数据到 ArrayList 实例里</span></span><br><span class="line">   strs.add(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">   strs.add(<span class="string">&quot;李四&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>get/size方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据索引获取值，值的类型是 String</span></span><br><span class="line">String str = strs.get(i);<span class="comment">//索引一般使用单词index</span></span><br><span class="line"><span class="comment">// 获取集合的长度</span></span><br><span class="line"><span class="keyword">int</span> size = strs.size();</span><br></pre></td></tr></table></figure>
+
+<p>for循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; strs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(String str : strs)&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//语法</span></span><br><span class="line"><span class="keyword">for</span>( 集合变量的类型 变量名称 : 集合变量 )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -832,67 +946,11 @@ System.out.println(str);</code></pre>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/13/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/13/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">rizhifenxixuexi</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-10-13 14:23:43 / Modified: 14:31:17" itemprop="dateCreated datePublished" datetime="2020-10-13T14:23:43+08:00">2020-10-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="grep-c-‘-查找的文本内容-‘-文件名"><a href="#grep-c-‘-查找的文本内容-‘-文件名" class="headerlink" title="grep -c ‘ 查找的文本内容 ‘ 文件名"></a>grep -c ‘ 查找的文本内容 ‘ 文件名</h1><h1 id="GET-请求的网址-请求的协议"><a href="#GET-请求的网址-请求的协议" class="headerlink" title="GET + 请求的网址 + 请求的协议"></a>GET + 请求的网址 + 请求的协议</h1><p>cat 文件名|awk ‘{ print $8 }’|sort|uniq -c|sort -k1r|head -10</p>
-<h2 id="脚本头-bin-bash"><a href="#脚本头-bin-bash" class="headerlink" title="脚本头: #!/bin/bash"></a><strong>脚本头: #!/bin/bash</strong></h2><h2 id="if-then-……-fi"><a href="#if-then-……-fi" class="headerlink" title="if [ ]; then …… fi"></a>if [ ]; then …… fi</h2><h2 id="f-‘文件名’-判断文件是否存在"><a href="#f-‘文件名’-判断文件是否存在" class="headerlink" title="-f ‘文件名’ 判断文件是否存在"></a>-f ‘文件名’ 判断文件是否存在</h2><h2 id="运行-sh-xxx-sh"><a href="#运行-sh-xxx-sh" class="headerlink" title="运行 sh xxx.sh"></a>运行 sh xxx.sh</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 

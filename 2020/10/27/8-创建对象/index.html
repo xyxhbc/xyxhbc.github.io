@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
+  </script>
+
+  <meta name="description" content="包管理：将不同的Java代码放到不同的文件夹（package）中 导入包：import  包名 + 类名 包名+类名组成完整的包路径  LocalDate(java8): 获得计算机系统时间 12&#x2F;&#x2F; 得到当前的日期LocalDate time &#x3D; LocalDate.now();  日期时间和字符串的转化1DateTimeFormatter 该类可以格式化输出日期时间  1import java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.创建对象">
+<meta property="og:url" content="http://example.com/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="包管理：将不同的Java代码放到不同的文件夹（package）中 导入包：import  包名 + 类名 包名+类名组成完整的包路径  LocalDate(java8): 获得计算机系统时间 12&#x2F;&#x2F; 得到当前的日期LocalDate time &#x3D; LocalDate.now();  日期时间和字符串的转化1DateTimeFormatter 该类可以格式化输出日期时间  1import java">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-27T06:27:42.000Z">
+<meta property="article:modified_time" content="2020-10-27T11:52:39.860Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>8.创建对象 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">包管理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">日期时间和字符串的转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E6%97%A5%E6%9C%9F%E5%85%B7%E4%BD%93%E7%9A%84%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">获得日期具体的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%97%A5%E6%9C%9F"><span class="nav-number">4.</span> <span class="nav-text">字符串转化为日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">时间日期的计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%9A%84%E5%88%A4%E6%96%AD"><span class="nav-number">6.</span> <span class="nav-text">两个日期时间的判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-number">7.</span> <span class="nav-text">对象属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number"></span> <span class="nav-text">static</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList%E8%AF%AD%E6%B3%95%EF%BC%88%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">ArrayList语法（动态数组对象）</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          8.创建对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-27 14:27:42 / Modified: 19:52:39" itemprop="dateCreated datePublished" datetime="2020-10-27T14:27:42+08:00">2020-10-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="包管理："><a href="#包管理：" class="headerlink" title="包管理："></a>包管理：</h4><p>将不同的Java代码放到不同的文件夹（package）中</p>
+<p>导入包：import  包名 + 类名</p>
+<p>包名+类名组成完整的包路径</p>
+<p><font color = "#dd0000"> LocalDate(java8):</font> 获得计算机系统时间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前的日期</span></span><br><span class="line">LocalDate time = LocalDate.now();</span><br></pre></td></tr></table></figure>
+
+<h4 id="日期时间和字符串的转化"><a href="#日期时间和字符串的转化" class="headerlink" title="日期时间和字符串的转化"></a>日期时间和字符串的转化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DateTimeFormatter 该类可以格式化输出日期时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个格式化方式</span></span><br><span class="line">DateTimeFormatter df = DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 执行时间的格式化处理，得到期望格式的时间字符串</span></span><br><span class="line">String timeStr = df.format(time);</span><br></pre></td></tr></table></figure>
+
+<h4 id="获得日期具体的值"><a href="#获得日期具体的值" class="headerlink" title="获得日期具体的值"></a>获得日期具体的值</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在年</span></span><br><span class="line">    <span class="keyword">int</span> year = time.getYear();</span><br><span class="line">    System.out.println(<span class="string">&quot;当前年份 &quot;</span> + year);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在月</span></span><br><span class="line">   <span class="keyword">int</span> month = time.getMonth().getValue();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前月份 &quot;</span> + month);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间在这个月中的天数</span></span><br><span class="line">   <span class="keyword">int</span> day = time.getDayOfMonth();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前日 &quot;</span> + day);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到当前时间所在星期数</span></span><br><span class="line">   <span class="keyword">int</span> dayOfWeek = time.getDayOfWeek().getValue();</span><br><span class="line">   System.out.println(<span class="string">&quot;当前星期 &quot;</span> + dayOfWeek);</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串转化为日期"><a href="#字符串转化为日期" class="headerlink" title="字符串转化为日期"></a>字符串转化为日期</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把字符串转化位 LocalDate 对象，并得到字符串匹配的日期</span></span><br><span class="line">    LocalDate date2 = LocalDate.parse(<span class="string">&quot;2019-01-01&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><font color = "#dd0000">若日期格式非yyyy-MM-dd</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个时间字符串，日期是2019年1月1日</span></span><br><span class="line">    String date = <span class="string">&quot;2019/01/01&quot;</span>;</span><br><span class="line"></span><br><span class="line">    DateTimeFormatter df = DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把字符串转化位 LocalDate 对象，并得到字符串匹配的日期</span></span><br><span class="line">    LocalDate date2 = LocalDate.parse(date,df);</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间日期的计算"><a href="#时间日期的计算" class="headerlink" title="时间日期的计算"></a>时间日期的计算</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 plusDays 添加天数，得到新的时间</span></span><br><span class="line">   LocalDate leaveTime = time.plusDays(days);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.LocalDate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTest10</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    LocalDate now = LocalDate.now();</span><br><span class="line">    System.out.println(<span class="string">&quot;当前：&quot;</span> + now.toString());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;加法运算&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;加1天：&quot;</span> + now.plusDays(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1周：&quot;</span> + now.plusWeeks(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1月：&quot;</span> + now.plusMonths(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;加1年：&quot;</span> + now.plusYears(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;减法运算&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;减1天：&quot;</span> + now.minusDays(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1周：&quot;</span> + now.minusWeeks(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1月：&quot;</span> + now.minusMonths(<span class="number">1</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;减1年：&quot;</span> + now.minusYears(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="两个日期时间的判断"><a href="#两个日期时间的判断" class="headerlink" title="两个日期时间的判断"></a>两个日期时间的判断</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//是否在当天之前</span></span><br><span class="line"><span class="keyword">boolean</span> isBefore=now.minusDays(<span class="number">1</span>).isBefore(LocalDate.now());</span><br><span class="line"><span class="comment">//是否在当天之后</span></span><br><span class="line"><span class="keyword">boolean</span> isAfter = now.plusDays(<span class="number">1</span>).isAfter(LocalDate.now());</span><br><span class="line"><span class="comment">// 判断是否是当天</span></span><br><span class="line"><span class="keyword">boolean</span> sameDate = now.isEqual(LocalDate.now());</span><br></pre></td></tr></table></figure>
+
+<h4 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h4><p><font color = "#dd0000">类中直接定义的变量</font></p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
+<li><p>有static关键字为静态方法</p>
+</li>
+<li><p>无static关键字为对象方法</p>
+</li>
+</ul>
+<h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><p>若在Java中定义了新的构造器，则默认的无参数构函数就失效</p>
+<h4 id="ArrayList语法（动态数组对象）"><a href="#ArrayList语法（动态数组对象）" class="headerlink" title="ArrayList语法（动态数组对象）"></a>ArrayList语法（动态数组对象）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line">ArrayList&lt;Java 对象类型&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>add方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 ArrayList 存储字符串集合</span></span><br><span class="line">   ArrayList&lt;String&gt; strs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 添加数据到 ArrayList 实例里</span></span><br><span class="line">   strs.add(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">   strs.add(<span class="string">&quot;李四&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>get/size方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据索引获取值，值的类型是 String</span></span><br><span class="line">String str = strs.get(i);<span class="comment">//索引一般使用单词index</span></span><br><span class="line"><span class="comment">// 获取集合的长度</span></span><br><span class="line"><span class="keyword">int</span> size = strs.size();</span><br></pre></td></tr></table></figure>
+
+<p>for循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; strs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(String str : strs)&#123;</span><br><span class="line">  System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//语法</span></span><br><span class="line"><span class="keyword">for</span>( 集合变量的类型 变量名称 : 集合变量 )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag"># Java基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/20/patB1052/" rel="prev" title="patB1052">
+      <i class="fa fa-chevron-left"></i> patB1052
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
