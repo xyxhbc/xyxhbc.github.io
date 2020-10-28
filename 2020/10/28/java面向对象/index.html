@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false};
+  </script>
+
+  <meta name="description" content="类之间的关系 关联 依赖 聚集 泛化 实现  访问修饰符 继承语法  子类可以实例化父类，同时覆盖父类的方法123456789public class Test &amp;#123;  public static void main(String[] args)&amp;#123;    &#x2F;&#x2F; 实例化 dog 对象并赋值给 Animal 对象    Animal d &#x3D; new Dog();    d.setNa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java面向对象">
+<meta property="og:url" content="http://example.com/2020/10/28/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类之间的关系 关联 依赖 聚集 泛化 实现  访问修饰符 继承语法  子类可以实例化父类，同时覆盖父类的方法123456789public class Test &amp;#123;  public static void main(String[] args)&amp;#123;    &#x2F;&#x2F; 实例化 dog 对象并赋值给 Animal 对象    Animal d &#x3D; new Dog();    d.setNa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/26633/Pictures/JAVASTUDY%6028CM1$MQT%60L%7B2BM9%7B3XU08.png">
+<meta property="og:image" content="c:/Users/26633/Pictures/JAVASTUDY/QQ截图20201028183130.png">
+<meta property="og:image" content="c:/Users/26633/Pictures/JAVASTUDY/extends.svg">
+<meta property="og:image" content="c:/Users/26633/AppData/Roaming/Typora/typora-user-images/image-20201028183402845.png">
+<meta property="og:image" content="c:/Users/26633/AppData/Roaming/Typora/typora-user-images/image-20201028191338322.png">
+<meta property="og:image" content="c:/Users/26633/AppData/Roaming/Typora/typora-user-images/image-20201028201957512.png">
+<meta property="og:image" content="c:/Users/26633/AppData/Roaming/Typora/typora-user-images/image-20201028202155360.png">
+<meta property="article:published_time" content="2020-10-28T06:32:29.000Z">
+<meta property="article:modified_time" content="2020-10-28T14:51:09.226Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/26633/Pictures/JAVASTUDY%6028CM1$MQT%60L%7B2BM9%7B3XU08.png">
+
+<link rel="canonical" href="http://example.com/2020/10/28/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>java面向对象 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">类之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">继承语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E7%B1%BB%E5%8F%AF%E4%BB%A5%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%88%B6%E7%B1%BB%EF%BC%8C%E5%90%8C%E6%97%B6%E8%A6%86%E7%9B%96%E7%88%B6%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">子类可以实例化父类，同时覆盖父类的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this%E5%8F%AF%E4%BB%A5%E6%93%8D%E4%BD%9C%E5%AE%9E%E4%BE%8B%E5%86%85%E7%9A%84%E5%8F%98%E9%87%8F%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">this可以操作实例内的变量或者方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super%E5%9C%A8%E5%AD%90%E7%B1%BB%E4%B8%AD%E8%B0%83%E7%94%A8%E7%88%B6%E7%B1%BB%E7%9A%84%E5%8F%98%E9%87%8F%E6%88%96%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">super在子类中调用父类的变量或方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">子类的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">接口的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%B8%B8%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="nav-number"></span> <span class="nav-text">Java常用接口</span></a></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/28/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java面向对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-28 14:32:29 / Modified: 22:51:09" itemprop="dateCreated datePublished" datetime="2020-10-28T14:32:29+08:00">2020-10-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h4><ul>
+<li>关联</li>
+<li>依赖</li>
+<li>聚集</li>
+<li>泛化</li>
+<li>实现</li>
+</ul>
+<h4 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h4><p><img src="C:\Users\26633\Pictures\JAVASTUDY`28CM1$MQT`L{2BM9{3XU08.png" alt="`28CM1$MQT`L{2BM9{3XU08"></p>
+<h4 id="继承语法"><a href="#继承语法" class="headerlink" title="继承语法"></a>继承语法</h4><p><img src="C:\Users\26633\Pictures\JAVASTUDY\QQ截图20201028183130.png" alt="QQ截图20201028183130"><img src="C:\Users\26633\Pictures\JAVASTUDY\extends.svg" alt="extends"></p>
+<p><img src="C:\Users\26633\AppData\Roaming\Typora\typora-user-images\image-20201028183402845.png" alt="image-20201028183402845"></p>
+<h4 id="子类可以实例化父类，同时覆盖父类的方法"><a href="#子类可以实例化父类，同时覆盖父类的方法" class="headerlink" title="子类可以实例化父类，同时覆盖父类的方法"></a><font color="#dd000d">子类可以实例化父类，同时覆盖父类的方法</font></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 实例化 dog 对象并赋值给 Animal 对象</span></span><br><span class="line">    Animal d = <span class="keyword">new</span> Dog();</span><br><span class="line">    d.setName(<span class="string">&quot;小灰&quot;</span>);</span><br><span class="line">    d.setAge(<span class="number">3</span>);</span><br><span class="line">    System.out.println(d.getName()+<span class="string">&quot;---&quot;</span>+d.getAge());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="this可以操作实例内的变量或者方法"><a href="#this可以操作实例内的变量或者方法" class="headerlink" title="this可以操作实例内的变量或者方法"></a>this可以操作实例内的变量或者方法</h4><h4 id="super在子类中调用父类的变量或方法"><a href="#super在子类中调用父类的变量或方法" class="headerlink" title="super在子类中调用父类的变量或方法"></a>super在<font color="#dd0000">子类</font>中调用父类的变量或方法</h4><h3 id="子类的构造函数"><a href="#子类的构造函数" class="headerlink" title="子类的构造函数"></a>子类的构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomFile</span></span>&#123;</span><br><span class="line">  <span class="comment">// 存储文件路径的变量</span></span><br><span class="line">  <span class="keyword">public</span> String filePath;</span><br><span class="line">  <span class="comment">// 存储文件后缀变量，通过后缀来区分文件类型</span></span><br><span class="line">  <span class="keyword">public</span> String ext;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 声明一个构造函数，接受文件路径</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">CustomFile</span><span class="params">(String filePath)</span></span>&#123;</span><br><span class="line">    <span class="comment">//给类变量 filePath 赋值</span></span><br><span class="line">    <span class="comment">//this代表的是当前类的实例</span></span><br><span class="line">    <span class="keyword">this</span>.filePath = filePath;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 获取文件名称</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 比如文件路径是 /Users/mac/work/face.png</span></span><br><span class="line">    <span class="comment">// 把文件路径分隔成数组（分隔符是 / ）</span></span><br><span class="line">    <span class="comment">// 数组的最后一位就是文件名</span></span><br><span class="line">    String[] paths = filePath.split(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">    <span class="comment">// 数组的最后一位需要减1，因为数组是从索引0开始的。</span></span><br><span class="line">    <span class="keyword">return</span>  paths[paths.length-<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\26633\AppData\Roaming\Typora\typora-user-images\image-20201028191338322.png" alt="image-20201028191338322"></p>
+<p><font color="#dd0000">构造函数里的super方法必须写在第一行</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaFile</span> <span class="keyword">extends</span> <span class="title">CustomFile</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 声明一个构造函数</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">JavaFile</span><span class="params">(String filePath)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(filePath);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口的语法"><a href="#接口的语法" class="headerlink" title="接口的语法"></a>接口的语法</h3><p><img src="C:\Users\26633\AppData\Roaming\Typora\typora-user-images\image-20201028201957512.png" alt="image-20201028201957512"></p>
+<p><img src="C:\Users\26633\AppData\Roaming\Typora\typora-user-images\image-20201028202155360.png" alt="image-20201028202155360"></p>
+<h3 id="Java常用接口"><a href="#Java常用接口" class="headerlink" title="Java常用接口"></a>Java常用接口</h3><ul>
+<li>Map</li>
+<li>List</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag"># Java基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/27/8-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/" rel="prev" title="8.创建对象">
+      <i class="fa fa-chevron-left"></i> 8.创建对象
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
